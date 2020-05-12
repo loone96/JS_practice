@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js03_function</title>
+</head>
+
+<body>
+    <script>
+        function f1() {
+            console.log('f1');
+        }
+        f1();
+        function f2(v) {
+            console.log(v);
+        }
+        f2('test');
+        function f3(v1, v2) {
+            console.log(v1 + ' ' + v2);
+        }
+        f3('test');
+
+        hello = function (v) {
+            return v;
+        }
+        siat = function (v) {
+            return v;
+        }
+        console.log(hello('siat'));
+        console.log(siat('siat'));
+    </script>
+</body>
+
+</html>

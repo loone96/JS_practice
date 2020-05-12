@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let datas = "유재석,신동엽,이영자,정찬우,김태균,이산,이곤";
+        var arr = datas.split(',');
+        console.log(arr.reduce((myFun),0));
+        function myFun(total, item) {
+            return total + item.length;
+        };
+        let lengthSum = 0;
+        datas.split(',').forEach(data => lengthSum += data.length);
+        console.log('lengthSum은:: '+ ㄴlengthSum);
+        console.log(arr.reduce((total,item) => total + item.length, 0));
+
+
+
+    </script>
+</body>
+
+</html>

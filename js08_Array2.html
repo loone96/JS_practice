@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    JS array iteration <br>
+    map(), filter , reduce();
+    <script>
+        a1 = ['one', 'two', 'three', 'four', 'five'];
+        a2 = [10, 20, 30, 40, 50];
+        console.log(a1);
+        function myFun1(item, index, arr) {
+            console.log(item + index + arr);
+        }
+        console.log('==========');
+        a1.map(myFun1);
+        console.log('=====reduce=====');
+        function myFun2(total, item, index) {
+            console.log('index: ' + index + 'total' + total + ' ' + 'item' + item);
+            return total + item;
+        }
+        console.log(a2.reduce(myFun2));
+        console.log(a2);
+
+       
+    </script>
+</body>
+
+</html>

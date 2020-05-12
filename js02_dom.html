@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            데이터 3
+        </p>
+    </div>
+   
+    <div>
+        <p>
+            <div>데이터 4</div>
+        </p>
+    </div>
+    <script>
+        //첫번째 div에 포함된 p의 자식 갯수
+        var first = document.querySelector("div:first-child").childNodes.length;
+        console.log(first);
+        //두번째 div에 포함된 p의 자식 갯수
+        var second = document.querySelector("div:second-child").childNodes.length;
+        console.log(second);
+
+    </script>
+</body>
+</html>

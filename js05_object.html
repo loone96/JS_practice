@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<<device-width>>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    이름: <input id="name" type="text"><br>
+    나이: <input id="age" type="text"><br>
+    직업: <input id="job" type="text"><br>
+    <hr><br>
+    <button>정보보기</button>
+    <script>
+
+        let people = {
+            name: '강호동',
+            age: 10,
+            job: '고깃집 사장님'
+        }
+
+        function dataView() {
+            console.log('함수 작동');
+            document.getElementById("name").value = people.name;
+            document.getElementById("age").value = people.age;
+            document.getElementById("job").value = people.job;
+        }
+
+        document.getElementsByTagName("button")[0].addEventListener('click', () => {
+            console.log('함수 작동');
+            document.getElementById("name").value = people.name;
+            document.getElementById("age").value = people.age;
+            document.getElementById("job").value = people.job;
+        });
+
+        document.querySelector("button").addEventListener('click', () => {
+            console.log('함수 작동');
+            document.getElementById("name").value = people.name;
+            document.getElementById("age").value = people.age;
+            document.getElementById("job").value = people.job;
+        });
+
+
+        let obj1 = {
+            name: '유재석',
+            getName: function () {
+                return this.name;
+            }
+        }
+        obj1.name = '이영자';
+        delete obj1.name;
+
+        //생성자를 활용한 객체 생성 
+        let obj2 = new Object();
+        obj2.name = '신동엽';
+        console.log(obj2.name);
+
+        let obj3 = {};
+        obj3.job = 'pd';
+        console.log(obj3.job);
+
+        console.log('-------------');
+        let obj4 = {
+            'name': '유재석',
+            'age' : 30
+        }
+        console.log(obj4.name);
+        obj4.job = 'it';
+        console.log(obj4.job);
+        console.log(obj4.age);
+    </script>
+</body>
+
+</html>

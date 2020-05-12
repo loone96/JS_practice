@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.w3schools.com/jsref/jsref_foreach.asp">참조 사이트 forEach w3schools</a>
+    <script>
+        let arr1 = [1, 2, 3];
+        console.log(arr1);
+        console.log(typeof (arr1));
+        console.log(arr1.length);
+        arr1.push(99);
+        console.log(arr1.pop());
+
+        let arr2 = [1, 2, 'string'];
+        console.log(arr2[2]);
+        console.log('===for in ===');
+        for (v in arr2) {
+            console.log(v + "-" + arr2[v]);
+        }
+
+        console.log('===forEach===');
+        arr2.forEach((element, index) => console.log(index + "-" + element));
+        arr2.forEach((thisValue, index) => console.log(index + "-" + thisValue));
+        arr2.forEach((thisValue, index, array) => array[index] = thisValue + "수정");
+        arr2.forEach((thisValue, index) => console.log(index + "-" + thisValue));
+
+        var arr3 = ['신진혁', '허효선', '이정화', '이민지', '황인기'];
+        arr3.forEach(myFun);
+        function myFun(item, index, arr) {
+            arr[index] = '번호'+(index+1)+' '+item;
+        }
+        console.log(arr3);
+
+    </script>
+</body>
+
+</html>

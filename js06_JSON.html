@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+
+        var myJSON2 = { "name": "John", "age": 31, "city": "New York" };
+        console.log(typeof (myJSON));
+        console.log(typeof (myJSON2));
+        console.log(myJSON2.name);
+        var x = typeof (myJSON);
+        var y = typeof (myJSON2);
+        console.log(x);
+        console.log(y);
+        var myJSON3 = "{'name':'John', 'age':31, 'city':'New York'}";
+        // myJSON5 = JSON.parse(myJSON3);
+        //console.log(myJSON5.name);
+
+        myJSON6 = eval("(" + myJSON3 + ")");
+        console.log(myJSON6.name);
+
+        let datas = '{"employees":[\
+            { "firstName":"John", "lastName":"Doe" },\
+            { "firstName":"Anna", "lastName":"Smith" },\
+            { "firstName":"Peter", "lastName":"Jones" }\
+        ]}';
+
+        //console.log(datas.employees[2].firstName);
+    </script>
+</body>
+
+</html>

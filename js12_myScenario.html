@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>삼형제</h3>
+    <div id="div1">
+        삼형제가 어린이날을 맞이해 놀이공원에 놀러갔습니다. <br>
+        첫째인 <span id="first_name"></span>(이)가 가지고 있는 돈은 <span id="first_money"></span>원 이고<br>
+        둘쨰인 <span id="second_name"></span>(이)가 가지고 있는 돈은 <span id="second_money"></span>원 이고<br>
+        셋째인 <span id="third_name"></span>(이)가 가지고 있는 돈은 <span id="third_money"></span>원 입니다.<br>
+
+        자유이용권의 총 금액은 1인 30,000원이었습니다.<br>
+        첫째인 하나는 동생들의 자유이용권까지 구매해 총 3장의 티켓을 매표소에서 구매했습니다.<br>
+        <button class="button_hide" onclick="minus_money(90000, '이하나'); show_div('div2')">자유이용권 구매</button>
+
+        <br>
+        <hr><br>
+    </div>
+    <div id="div2" style="visibility: hidden;">
+        삼형제가 가장 먼저 타고 싶었던 놀이기구는 이번에 새로 생긴 씨앗 롤러코스터였습니다. <br>
+
+        직원: 키가 150cm 이상만 출입가능합니다! <br>
+        이둘: 우리 가족중에 키가 150cm이상인 사람이 누구지? <br>
+        이삼: 우리 가족 모두 150cm 넘어! <br>
+        이하나: 아니야 우리 가족중에 150cm이 넘는 사람은 <span id="height_ans" onclick="show_div('div3')"><button class="button_hide" onclick="height_people()">놀기기구를
+                탈 수
+                있는 사람?</button></span>이야.
+
+        <br>
+        <hr><br>
+    </div>
+    <div id="div3"  style="visibility: hidden;">
+        놀이공원에 갔더니 맛있는 솜사탕을 보니 사먹고 싶어졌습니다. <br>
+        모두 3000원씩 내고 솜사탕을 사먹었습니다
+        <button class="button_hide" onclick="minus_money(3000, 'all')">솜사탕 사먹기</button>
+        <br>
+        첫째는 저녁까지 다 먹은 후 집으로가는 교통비를 계산하기 위해 형제들의 남은 돈을 계산해 보았습니다.
+        그랬더니 남은 돈은 <span id="money_ans"><button class="button_hide" onclick="currMoney()">현재 남아있는
+                돈?</button></span>원이었습니다.
+    </div>
+
+    <script>
+        let family = [{ name: "이하나", age: 24, height: 180, money: 120000 }, { name: "이둘", age: 18, height: 160, money: 20000 }, { name: "이삼", age: 10, height: 120, money: 5000 }];
+
+        document.getElementById('first_name').innerHTML = family[0].name;
+        document.getElementById('second_name').innerHTML = family[1].name;
+        document.getElementById('third_name').innerHTML = family[2].name;
+        document.getElementById('first_money').innerHTML = family[0].money;
+        document.getElementById('second_money').innerHTML = family[1].money;
+        document.getElementById('third_money').innerHTML = family[2].money;
+
+        function height_people() {
+            var height_list = family.filter((item) => { return item.height > 150 });
+            var height_ans = "";
+            for (var i = 0; i < height_list.length; i++) {
+                if (i !== (height_list.length - 1)) {
+                    height_ans = height_ans + height_list[i].name + ', ';
+                } else {
+                    height_ans = height_ans + height_list[i].name;
+                }
+            }
+            document.getElementById('height_ans').innerHTML = height_ans;
+        }
+
+
+        function minus_money(number, name) {
+            if (name == 'all') {
+                family.map(item => {
+                    item.money = item.money - number;
+                })
+            } else {
+                for (i = 0; i < family.length; i++) {
+                    if (family[i].name == name) {
+                        family[i].money = family[i].money - number;
+                    }
+                }
+            }
+        }
+
+        function currMoney() {
+            var Moneysum = family.reduce(moneyCal, 0);
+            function moneyCal(total, item) {
+                return total + item.money;
+            }
+            document.getElementById('money_ans').innerHTML = Moneysum;
+        }
+
+        var allButtons = document.querySelectorAll('.button_hide');
+        for (var i = 0; i < allButtons.length; i++) {
+            allButtons[i].addEventListener('click', function () {
+                this.style.display = 'none';
+            });
+        }
+
+        function show_div(div_id_name){
+            document.getElementById(div_id_name).style.visibility = null;
+        }
+
+    </script>
+</body>
+
+</html>
